@@ -26,9 +26,5 @@ public class DesignationResponse {
     public void setName(String name) {
         this.name = name;
     }
-//    public DesignationResponse(Designation designation){
-//        this.name=designation.getName();
-//        this.id=designation.getId();
-//
-//    }
+
 }

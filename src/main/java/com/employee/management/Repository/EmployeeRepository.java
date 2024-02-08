@@ -1,7 +1,6 @@
 package com.employee.management.Repository;
 
 import com.employee.management.Model.Entity.Employee;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -16,6 +15,4 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     @Query("select count(*) from Employee")
     Integer countAll();
 
-    @Query("select e from Employee e where e.name=?1")
-    List<Employee> findAllDesignationByQuery(String query, Pageable pageable);
 }

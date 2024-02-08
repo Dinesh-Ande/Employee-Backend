@@ -11,6 +11,6 @@ public interface DesignationService {
     Designation updateDesignationById(Long id, Designation designation);
     void deleteDesignationById(Long id);
     List<Designation> getAllDesignation();
-    List<Designation> getAllDesignationByPagination(Integer pageNo, Integer pageSize, String query);
+    List<Designation> getAllDesignationByPagination(Integer pageNo, Integer pageSize);
     Integer countAll();
 }

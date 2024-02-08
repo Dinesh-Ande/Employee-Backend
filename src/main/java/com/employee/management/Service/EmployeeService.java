@@ -10,6 +10,6 @@ public interface EmployeeService {
     Employee updateEmployeeById(Long id, Employee employee);
     void deleteEmployeeById(Long id);
     List<Employee> getAllEmployee();
-    List<Employee> getAllEmployeeByPagination(Integer pageNo, Integer pageSize, String query);
+    List<Employee> getAllEmployeeByPagination(Integer pageNo, Integer pageSize);
     Integer countAll();
 }

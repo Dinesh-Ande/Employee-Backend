@@ -54,13 +54,10 @@ public class DesignationServiceImpl implements DesignationService {
     }
 
     @Override
-    public List<Designation> getAllDesignationByPagination(Integer pageNo, Integer pageSize, String query) {
+    public List<Designation> getAllDesignationByPagination(Integer pageNo, Integer pageSize) {
         List<Designation> designationList = new ArrayList<>();
         Pageable pageable =  PageRequest.of(pageNo - 1,pageSize);
-        if (query == null)
-            designationRepository.findAll(pageable).forEach(designationList::add);
-        else
-            designationRepository.findAllDesignationByQuery(query,pageable);
+        designationRepository.findAll(pageable).forEach(designationList::add);
         return designationList;
     }
 

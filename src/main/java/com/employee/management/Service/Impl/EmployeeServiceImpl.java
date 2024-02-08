@@ -51,13 +51,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> getAllEmployeeByPagination(Integer pageNo, Integer pageSize, String query) {
+    public List<Employee> getAllEmployeeByPagination(Integer pageNo, Integer pageSize) {
         List<Employee> employeeList = new ArrayList<>();
         Pageable pageable =  PageRequest.of(pageNo - 1,pageSize);
-        if (query == null)
-            employeeRepository.findAll(pageable).forEach(employeeList::add);
-        else
-            employeeRepository.findAllDesignationByQuery(query,pageable);
+        employeeRepository.findAll(pageable).forEach(employeeList::add);
         return employeeList;
     }
 

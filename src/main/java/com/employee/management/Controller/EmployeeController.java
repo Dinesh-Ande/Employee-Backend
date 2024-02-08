@@ -48,14 +48,10 @@ public class EmployeeController {
 
     @GetMapping
     public BackendListResponse getALLEmployeeByPagination(@RequestParam(value = "pageNo") Integer pageNo,
-                                                          @RequestParam(value = "pageSize") Integer pageSize,
-                                                          @RequestParam(value = "query") String query) {
+                                                          @RequestParam(value = "pageSize") Integer pageSize) {
         Integer count;
-        if (pageNo == null) pageNo = EmployeeUrlConstants.PAGE_NO;
-        if (pageSize == null) pageSize = EmployeeUrlConstants.PAGE_SIZE;
-        if (query == EmployeeUrlConstants.QUERY) query = null;
         count = employeeService.countAll();
-        List<Employee> employeeList = employeeService.getAllEmployeeByPagination(pageNo, pageSize, query);
+        List<Employee> employeeList = employeeService.getAllEmployeeByPagination(pageNo, pageSize);
         return responseUtil.getBackendListResponse(employeeList, pageNo, pageSize, count);
     }
 

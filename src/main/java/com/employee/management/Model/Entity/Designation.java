@@ -3,11 +3,7 @@ package com.employee.management.Model.Entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Designation_Details",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"name"})
-        }
-)
+@Table(name = "Designation_Details")
 public class Designation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

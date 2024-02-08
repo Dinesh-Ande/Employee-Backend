@@ -41,12 +41,10 @@ public class DesignationController {
 
     @GetMapping
     public BackendListResponse getAllByPagination(@RequestParam(value = "pageNo") Integer pageNo,
-                                                  @RequestParam(value = "pageSize") Integer pageSize,
-                                                  @RequestParam(value = "query") String query) {
+                                                  @RequestParam(value = "pageSize") Integer pageSize) {
         Integer count;
-        if (query == "") query = null;
         count = designationService.countAll();
-        List<Designation> designationList = designationService.getAllDesignationByPagination(pageNo, pageSize, query);
+        List<Designation> designationList = designationService.getAllDesignationByPagination(pageNo, pageSize);
         return responseUtil.getBackendListResponse(designationList, pageNo, pageSize, count);
     }
 
